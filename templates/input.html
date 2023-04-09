@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+<!--{% include "today.html" %}-->
+<div class="centerIt">
+    {% if submitted %}
+    <div class="bd">
+        <div class="container">
+            <div class="clock clock-1"> Your time : {{ input_time }}</div>  
+            <div class="clock clock-2"> Time in {{timezone}} is {{ output_time }}</div>  
+        </div>
+    </div>
+    {% else %}
+        <div class="container-form">
+        <div class="timeform">    
+        <form method="POST">
+            <div class="fieldItem">
+                <label for="birthdaytime"> Enter date and time :</label>
+                <input type="datetime-local" id="dateTime" name="dateTime">
+            </div>
+            <div class="fieldItem">
+                <label for="timezone"> Select Timezone
+                <input type="text" name="timezone" list="timezoneList">
+                <datalist id="timezoneList">
+                    {% for i in timezone_List %}
+                    <option value={{ i }}>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="fieldItem btn">
+                &lt;<input class="submit_btn" type="submit">&gt;
+            <div>
+        </form>
+        </div>    
+        </div>
+    {% endif %}
+
+</div>
