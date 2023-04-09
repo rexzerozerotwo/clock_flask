@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+
+<div class="container">
+{% block content %}
+    {% if today %}
+        <div class="timer timer-1"> Today is : {{ today }}</div>
+        <div class="timer timer-2"> Now is : {{ lc_now }}</div>
+        <div class="timer timer-3"> NY time : {{ ny_now }}</div>  
+    {% else %}   
+        <div> Check today's info on next page {{ today }}</div>
+    {% endif %}
+{% endblock content %}
+</div>
